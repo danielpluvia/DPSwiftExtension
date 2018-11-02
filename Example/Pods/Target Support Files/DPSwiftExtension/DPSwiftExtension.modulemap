@@ -1,0 +1,6 @@
+framework module DPSwiftExtension {
+  umbrella header "DPSwiftExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}
