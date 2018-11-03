@@ -7,7 +7,6 @@
 
 extension UIView {
   
-  @available(iOS 9.0, *)
   /// Activate four edges anchors.
   ///
   /// - Parameters:
@@ -19,7 +18,9 @@ extension UIView {
   ///   - leadingConstant: leading constant
   ///   - bottomConstant: bottom constant, it's usually negative
   ///   - trailingConstant: trailing constant, it's usually negative
-  public func enableEdgesAnchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, topConstant: CGFloat = 0, leadingConstant: CGFloat = 0, bottomConstant: CGFloat = 0, trailingConstant: CGFloat = 0) {
+  @available(iOS 9.0, *)
+  @discardableResult
+  public func enableEdgesAnchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, topConstant: CGFloat = 0, leadingConstant: CGFloat = 0, bottomConstant: CGFloat = 0, trailingConstant: CGFloat = 0) -> [NSLayoutConstraint] {
     self.translatesAutoresizingMaskIntoConstraints = false
     var anchors: [NSLayoutConstraint] = []
     if let top = top {
@@ -37,15 +38,17 @@ extension UIView {
     anchors.forEach ({
       $0.isActive = true
     })
+    return anchors
   }
   
-  @available(iOS 9.0, *)
   /// Activate width or height anchor.
   ///
   /// - Parameters:
   ///   - width: width
   ///   - height: height
-  public func enableSizeAnchor(width: CGFloat?, height: CGFloat?) {
+  @available(iOS 9.0, *)
+  @discardableResult
+  public func enableSizeAnchor(width: CGFloat?, height: CGFloat?) -> [NSLayoutConstraint] {
     self.translatesAutoresizingMaskIntoConstraints = false
     var anchors: [NSLayoutConstraint] = []
     if let width = width {
@@ -55,6 +58,7 @@ extension UIView {
       anchors.append(self.heightAnchor.constraint(equalToConstant: height))
     }
     anchors.forEach({ $0.isActive = true })
+    return anchors
   }
   
 }
