@@ -1,14 +1,17 @@
 use_frameworks!
 
+# ignore all warnings from all pods
+# inhibit_all_warnings!
+
 target 'DPSwiftExtension_Example' do
   pod 'DPSwiftExtension', :path => '../'
 
   target 'DPSwiftExtension_Tests' do
     inherit! :search_paths
 
-    pod 'Quick'
-    pod 'Nimble'
-    pod 'FBSnapshotTestCase'
-    pod 'Nimble-Snapshots'
+    pod 'Quick', :inhibit_warnings => true
+    pod 'Nimble', :inhibit_warnings => true
+    pod 'FBSnapshotTestCase', :inhibit_warnings => true
+    pod 'Nimble-Snapshots', :inhibit_warnings => true
   end
 end
