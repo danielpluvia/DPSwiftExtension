@@ -80,6 +80,7 @@
 		639D9C4EF1D73184DD1D0EA86B2AAF93 /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F28F29B058CA139807FAF750D50E1B /* Await.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		64349FC64EC805040B70D86E9B2B624A /* PrettySyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D4C2C13280EE6C2B911E94C95537DB /* PrettySyntax.swift */; };
 		659D2AF6218D514C00DBD5CE /* DPUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D2AF5218D514C00DBD5CE /* DPUIViewExtension.swift */; };
+		659D2AF8218D8E9300DBD5CE /* DPPaddingUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D2AF7218D8E9300DBD5CE /* DPPaddingUITextField.swift */; };
 		6673029A1E9ABDD79109176F30780C41 /* CwlBadInstructionException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B5337C42F06E5C7DE3087C1EFCA3A /* CwlBadInstructionException.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		6997B604F860DD4C5C60DCB327211676 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8102002E87BF32967538CB59D37D2B74 /* Expectation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		69AA3251A691CE9DD80FE806E02CE531 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E42B23F82126ECDB4E5903BC3A4C839 /* QuartzCore.framework */; };
@@ -333,6 +334,7 @@
 		6499D15872CC2C32FD82889744B39F9E /* DPSwiftExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DPSwiftExtension-dummy.m"; sourceTree = "<group>"; };
 		651B5337C42F06E5C7DE3087C1EFCA3A /* CwlBadInstructionException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlBadInstructionException.swift; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlBadInstructionException.swift; sourceTree = "<group>"; };
 		659D2AF5218D514C00DBD5CE /* DPUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DPUIViewExtension.swift; path = DPSwiftExtension/Classes/DPUIViewExtension.swift; sourceTree = "<group>"; };
+		659D2AF7218D8E9300DBD5CE /* DPPaddingUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DPPaddingUITextField.swift; path = DPSwiftExtension/Classes/DPPaddingUITextField.swift; sourceTree = "<group>"; };
 		66BBC3B6C2A05205471B5CAAC3AA5EAB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68313424EBCDFC816CC81A10258D2550 /* DPSwiftExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DPSwiftExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		692D3E847F03DF0130A7173354C7BFA0 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
@@ -596,6 +598,7 @@
 			children = (
 				B3E8FFE680C13E4B4B1D79704F22103E /* DPUIColorExtension.swift */,
 				659D2AF5218D514C00DBD5CE /* DPUIViewExtension.swift */,
+				659D2AF7218D8E9300DBD5CE /* DPPaddingUITextField.swift */,
 				BE7EAAF6AE21F80CD76303807EE2B379 /* Pod */,
 				0BBF4C5FAF489E245B369347BC3DBB13 /* Support Files */,
 			);
@@ -1355,6 +1358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7FC9EEC422771FA017722E55B521E6 /* DPSwiftExtension-dummy.m in Sources */,
+				659D2AF8218D8E9300DBD5CE /* DPPaddingUITextField.swift in Sources */,
 				9A65F078FD082FC07EB0BE8404028798 /* DPUIColorExtension.swift in Sources */,
 				659D2AF6218D514C00DBD5CE /* DPUIViewExtension.swift in Sources */,
 			);
