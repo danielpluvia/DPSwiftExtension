@@ -40,14 +40,14 @@ public class DPPaddingUITextField: UITextField {
   }
   
   override public func textRect(forBounds bounds: CGRect) -> CGRect {
-    return UIEdgeInsetsInsetRect(bounds, padding)
+    return bounds.inset(by: padding)
   }
   
   public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-    return UIEdgeInsetsInsetRect(bounds, padding)
+    return bounds.inset(by: padding)
   }
   
   public override func editingRect(forBounds bounds: CGRect) -> CGRect {
-    return UIEdgeInsetsInsetRect(bounds, padding)
+    return bounds.inset(by: padding)
   }
 }
