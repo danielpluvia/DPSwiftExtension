@@ -34,6 +34,16 @@ open class DPPagingScrollViewController: UIViewController {
         self.scrollView.setContentOffset(newOffset, animated: true)
     }
     
+    open func scrollForward() {
+        let index = Int(currentPage) + 1
+        scrollTo(pageIndex: index)
+    }
+    
+    open func scrollBackward() {
+        let index = Int(currentPage) - 1
+        scrollTo(pageIndex: index)
+    }
+    
     public func set(pages: [UIView]) {
         self.containerView.subviews.forEach { (v) in
             v.removeFromSuperview()
@@ -41,10 +51,11 @@ open class DPPagingScrollViewController: UIViewController {
         self.pages = pages
         setupPages()
     }
+    public fileprivate(set) var currentPage: CGFloat = 0
     
     lazy public var scrollView: UIScrollView = {
         let sv = UIScrollView()
-        sv.backgroundColor = .brown
+        sv.backgroundColor = .clear
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.isPagingEnabled = true
         return sv
@@ -62,7 +73,6 @@ open class DPPagingScrollViewController: UIViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
-    fileprivate var currentPage: CGFloat = 0
     fileprivate var pages = [UIView]()
     
     // MARK: Setup Scroll View
