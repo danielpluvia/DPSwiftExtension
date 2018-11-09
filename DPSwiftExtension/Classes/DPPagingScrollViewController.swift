@@ -8,16 +8,16 @@
 import UIKit
 
 extension DPPagingScrollViewController: UIScrollViewDelegate {
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth: CGFloat = scrollView.frame.width
         currentPage = floor((scrollView.contentOffset.x - pageWidth / 2.0) / pageWidth) + 1
         view.endEditing(true)
     }
 }
 
-public class DPPagingScrollViewController: UIViewController {
+open class DPPagingScrollViewController: UIViewController {
     
-    override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: { (context) in
             let newOffset = CGPoint(x: self.currentPage * self.scrollView.frame.width, y: 0)
@@ -25,14 +25,13 @@ public class DPPagingScrollViewController: UIViewController {
         }, completion: nil)
     }
     
-    public func scrollTo(pageIndex: Int) {
+    open func scrollTo(pageIndex: Int) {
         var index = pageIndex
         index = max(index, 0)
         index = min(pages.count - 1, index)
         currentPage = CGFloat(index)
         let newOffset = CGPoint(x: currentPage * scrollView.frame.width, y: 0)
         self.scrollView.setContentOffset(newOffset, animated: true)
-        
     }
     
     public func set(pages: [UIView]) {
@@ -43,13 +42,21 @@ public class DPPagingScrollViewController: UIViewController {
         setupPages()
     }
     
-    lazy var scrollView: UIScrollView = {
+    lazy public var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.backgroundColor = .brown
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.isPagingEnabled = true
         return sv
     }()
+    
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        setupScrollView()
+        setupContainerView()
+        setupPages()
+    }
+    
     fileprivate let containerView: UIView = {
         let cv = UIView()
         cv.translatesAutoresizingMaskIntoConstraints = false
@@ -57,13 +64,6 @@ public class DPPagingScrollViewController: UIViewController {
     }()
     fileprivate var currentPage: CGFloat = 0
     fileprivate var pages = [UIView]()
-    
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        setupScrollView()
-        setupContainerView()
-        setupPages()
-    }
     
     // MARK: Setup Scroll View
     
@@ -132,7 +132,5 @@ public class DPPagingScrollViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        
     }
-    
 }
