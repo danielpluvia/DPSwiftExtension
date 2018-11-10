@@ -9,9 +9,9 @@ import Foundation
 
 // MARK: - Key Namespaceable
 
-protocol KeyNamespaceable { }
+public protocol KeyNamespaceable { }
 
-extension KeyNamespaceable {
+public extension KeyNamespaceable {
     private static func namespace(_ key: String) -> String {
         return "\(Self.self).\(key)"
     }
@@ -24,11 +24,11 @@ extension KeyNamespaceable {
 
 // MARK: - Bool Defaults
 
-protocol BoolUserDefaultable : KeyNamespaceable {
+public protocol BoolUserDefaultable : KeyNamespaceable {
     associatedtype BoolDefaultKey : RawRepresentable
 }
 
-extension BoolUserDefaultable where BoolDefaultKey.RawValue == String {
+public extension BoolUserDefaultable where BoolDefaultKey.RawValue == String {
     
     // Set
     
@@ -48,11 +48,11 @@ extension BoolUserDefaultable where BoolDefaultKey.RawValue == String {
 
 // MARK: - Float Defaults
 
-protocol FloatUserDefaultable : KeyNamespaceable {
+public protocol FloatUserDefaultable : KeyNamespaceable {
     associatedtype FloatDefaultKey : RawRepresentable
 }
 
-extension FloatUserDefaultable where FloatDefaultKey.RawValue == String {
+public extension FloatUserDefaultable where FloatDefaultKey.RawValue == String {
     
     // Set
     
@@ -72,11 +72,11 @@ extension FloatUserDefaultable where FloatDefaultKey.RawValue == String {
 
 // MARK: - Integer Defaults
 
-protocol IntegerUserDefaultable : KeyNamespaceable {
+public protocol IntegerUserDefaultable : KeyNamespaceable {
     associatedtype IntegerDefaultKey : RawRepresentable
 }
 
-extension IntegerUserDefaultable where IntegerDefaultKey.RawValue == String {
+public extension IntegerUserDefaultable where IntegerDefaultKey.RawValue == String {
     
     // Set
     
@@ -96,11 +96,11 @@ extension IntegerUserDefaultable where IntegerDefaultKey.RawValue == String {
 
 // MARK: - Object Defaults
 
-protocol ObjectUserDefaultable : KeyNamespaceable {
+public protocol ObjectUserDefaultable : KeyNamespaceable {
     associatedtype ObjectDefaultKey : RawRepresentable
 }
 
-extension ObjectUserDefaultable where ObjectDefaultKey.RawValue == String {
+public extension ObjectUserDefaultable where ObjectDefaultKey.RawValue == String {
     
     // Set
     
@@ -120,11 +120,11 @@ extension ObjectUserDefaultable where ObjectDefaultKey.RawValue == String {
 
 // MARK: - Double Defaults
 
-protocol DoubleUserDefaultable : KeyNamespaceable {
+public protocol DoubleUserDefaultable : KeyNamespaceable {
     associatedtype DoubleDefaultKey : RawRepresentable
 }
 
-extension DoubleUserDefaultable where DoubleDefaultKey.RawValue == String {
+public extension DoubleUserDefaultable where DoubleDefaultKey.RawValue == String {
     
     // Set
     
@@ -144,11 +144,11 @@ extension DoubleUserDefaultable where DoubleDefaultKey.RawValue == String {
 
 // MARK: - URL Defaults
 
-protocol URLUserDefaultable : KeyNamespaceable {
+public protocol URLUserDefaultable : KeyNamespaceable {
     associatedtype URLDefaultKey : RawRepresentable
 }
 
-extension URLUserDefaultable where URLDefaultKey.RawValue == String {
+public extension URLUserDefaultable where URLDefaultKey.RawValue == String {
     
     // Set
     
