@@ -31,7 +31,8 @@ open class DPPagingScrollViewController: UIViewController {
         index = min(pages.count - 1, index)
         currentPage = CGFloat(index)
         let newOffset = CGPoint(x: currentPage * scrollView.frame.width, y: 0)
-        self.scrollView.setContentOffset(newOffset, animated: true)
+        scrollView.setContentOffset(newOffset, animated: true)
+        view.endEditing(true)
     }
     
     open func scrollForward() {
