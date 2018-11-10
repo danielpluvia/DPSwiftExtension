@@ -76,6 +76,7 @@
 		635A5B1AE33A43EAC1B706508CAF3D62 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12B967647FABA381C66B8C69B641724 /* QuickSelectedTestSuiteBuilder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		6508157A219568D1005E6E4F /* DPPagingScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65081579219568D1005E6E4F /* DPPagingScrollViewController.swift */; };
 		650815902196AA5C005E6E4F /* DPStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6508158F2196AA5C005E6E4F /* DPStringExtension.swift */; };
+		6508159F21972D59005E6E4F /* UserDefaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6508159E21972D59005E6E4F /* UserDefaultable.swift */; };
 		66F355607487D74D1AADDC02462AF53C /* PrettyDynamicTypeSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23A87C01009F1373EF0DD4D0114057 /* PrettyDynamicTypeSyntax.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		67B19ADC10CC4015A223A3B7A62B1ADD /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C7695566FB1329C58521A0B36A5F0 /* ThrowError.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		67C421CC5874418AC0695BC424EC3408 /* DSL.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DE00FEBBC063392D435791B78E0614 /* DSL.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble -w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -335,6 +336,7 @@
 		6297B5B7C18BF0AB2A5C2ADABE1E55B3 /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
 		65081579219568D1005E6E4F /* DPPagingScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DPPagingScrollViewController.swift; path = DPSwiftExtension/Classes/DPPagingScrollViewController.swift; sourceTree = "<group>"; };
 		6508158F2196AA5C005E6E4F /* DPStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DPStringExtension.swift; path = DPSwiftExtension/Classes/DPStringExtension.swift; sourceTree = "<group>"; };
+		6508159E21972D59005E6E4F /* UserDefaultable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultable.swift; path = DPSwiftExtension/Classes/UserDefaultable.swift; sourceTree = "<group>"; };
 		651B5337C42F06E5C7DE3087C1EFCA3A /* CwlBadInstructionException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlBadInstructionException.swift; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlBadInstructionException.swift; sourceTree = "<group>"; };
 		66BBC3B6C2A05205471B5CAAC3AA5EAB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68313424EBCDFC816CC81A10258D2550 /* DPSwiftExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DPSwiftExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -660,6 +662,7 @@
 				6508158F2196AA5C005E6E4F /* DPStringExtension.swift */,
 				3509AC965F8FC802D9E9AAEB6AE69F9E /* Pod */,
 				173B224134F669141F9E4804076AFD69 /* Support Files */,
+				6508159E21972D59005E6E4F /* UserDefaultable.swift */,
 			);
 			name = DPSwiftExtension;
 			path = ../..;
@@ -1284,6 +1287,7 @@
 				F67BA082066D82203F55D0D66FA67744 /* DPUIColorExtension.swift in Sources */,
 				6508157A219568D1005E6E4F /* DPPagingScrollViewController.swift in Sources */,
 				CB5B37D7DAD0EB4D875BAC1CAE030E1A /* DPUIViewExtension.swift in Sources */,
+				6508159F21972D59005E6E4F /* UserDefaultable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
