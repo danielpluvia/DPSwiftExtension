@@ -93,7 +93,7 @@ open class DPPagingScrollViewController: UIViewController {
     fileprivate func setupContainerView() {
         scrollView.addSubview(containerView)
         if #available(iOS 9.0, *) {
-            containerView.enableEdgesAnchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
+            containerView.enableEdgesAnchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor) // These are special ScrollView constraints and they have no effect on your content size or position.
             NSLayoutConstraint.activate([
                 containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
                 ])

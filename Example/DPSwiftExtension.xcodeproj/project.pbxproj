@@ -14,6 +14,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		650815A92197F02C005E6E4F /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650815A82197F02C005E6E4F /* KeyboardViewController.swift */; };
 		C58FFD0E2C849CF13CE4A8B0 /* Pods_DPSwiftExtension_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A2611B3A1F6FC4E50590236 /* Pods_DPSwiftExtension_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		650815912196AC3C005E6E4F /* ExamplePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ExamplePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		650815A82197F02C005E6E4F /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		79D101D43B440AB9D7B093AE /* DPSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DPSwiftExtension.podspec; path = ../DPSwiftExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7E40E8CF465C4A37E9552E97 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9932F98441E505AADF273288 /* Pods-DPSwiftExtension_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPSwiftExtension_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DPSwiftExtension_Example/Pods-DPSwiftExtension_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				650815912196AC3C005E6E4F /* ExamplePlayground.playground */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				650815A82197F02C005E6E4F /* KeyboardViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				650815A92197F02C005E6E4F /* KeyboardViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

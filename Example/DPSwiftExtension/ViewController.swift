@@ -17,23 +17,13 @@ class ViewController: UIViewController {
         return view
     }()
     
-    let textField: DPPaddingUITextField = {
-        let tf = DPPaddingUITextField(xPadding: 10)
-        tf.placeholder = "placeholder"
-        return tf
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(redView)
-        self.view.addSubview(textField)
         
         self.redView.enableEdgesAnchor(
             top: self.view.topAnchor, leading: self.view.leadingAnchor, bottom: self.view.bottomAnchor, trailing: self.view.trailingAnchor,
             topConstant: 100, leadingConstant: 100, bottomConstant: -500, trailingConstant: -100)
-        
-        self.textField.enableEdgesAnchor(top: self.redView.bottomAnchor, leading: self.redView.leadingAnchor, bottom: nil, trailing: self.redView.trailingAnchor, topConstant: 16, leadingConstant: 0, bottomConstant: 0, trailingConstant: 0)
-        self.textField.enableSizeAnchor(width: nil, height: 40)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +31,7 @@ class ViewController: UIViewController {
         let str = "123"
         let result = str.validateRegex(pattern: "[0-9]*")
         print(result)
+        addKeyboardObserver()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,3 +44,5 @@ class ViewController: UIViewController {
     }
     
 }
+
+
