@@ -60,5 +60,26 @@ extension UIView {
     anchors.forEach({ $0.isActive = true })
     return anchors
   }
+    
+    @available(iOS 9.0, *)
+    @discardableResult
+    public func fillSuperview(padding: UIEdgeInsets = .zero) -> [NSLayoutConstraint] {
+        translatesAutoresizingMaskIntoConstraints = false
+        var anchors: [NSLayoutConstraint] = []
+        if let superviewTopAnchor = superview?.topAnchor {
+            anchors.append(topAnchor.constraint(equalTo: superviewTopAnchor, constant: padding.top))
+        }
+        if let superviewLeadingAnchor = superview?.leadingAnchor {
+            anchors.append(leadingAnchor.constraint(equalTo: superviewLeadingAnchor, constant: padding.left))
+        }
+        if let superviewBottomAnchor = superview?.bottomAnchor {
+            anchors.append(bottomAnchor.constraint(equalTo: superviewBottomAnchor, constant: -padding.bottom))
+        }
+        if let superviewTrailingAnchor = superview?.trailingAnchor {
+            anchors.append(trailingAnchor.constraint(equalTo: superviewTrailingAnchor, constant: -padding.right))
+        }
+        anchors.forEach({ $0.isActive = true })
+        return anchors
+    }
   
 }

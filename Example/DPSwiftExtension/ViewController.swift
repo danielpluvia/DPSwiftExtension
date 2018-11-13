@@ -20,10 +20,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(redView)
-        
-        self.redView.enableEdgesAnchor(
-            top: self.view.topAnchor, leading: self.view.leadingAnchor, bottom: self.view.bottomAnchor, trailing: self.view.trailingAnchor,
-            topConstant: 100, leadingConstant: 100, bottomConstant: -500, trailingConstant: -100)
+        self.redView.fillSuperview(padding: .init(top: 100, left: 100, bottom: 100, right: 100))
+//        self.redView.enableEdgesAnchor(
+//            top: self.view.topAnchor, leading: self.view.leadingAnchor, bottom: self.view.bottomAnchor, trailing: self.view.trailingAnchor,
+//            topConstant: 100, leadingConstant: 100, bottomConstant: -500, trailingConstant: -100)
     }
     
     override func viewWillAppear(_ animated: Bool) {
