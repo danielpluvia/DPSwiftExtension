@@ -78,13 +78,19 @@ open class DPPagingScrollViewController: UIViewController {
     
     // MARK: Setup Scroll View
     
-    fileprivate func setupScrollView() {
+    @objc open func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.delegate = self
         if #available(iOS 11.0, *) {
-            scrollView.enableEdgesAnchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
+            scrollView.enableEdgesAnchor(top: view.safeAreaLayoutGuide.topAnchor,
+                                         leading: view.safeAreaLayoutGuide.leadingAnchor,
+                                         bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                         trailing: view.safeAreaLayoutGuide.trailingAnchor)
         } else if #available(iOS 9.0, *) {
-            scrollView.enableEdgesAnchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+            scrollView.enableEdgesAnchor(top: view.topAnchor,
+                                         leading: view.leadingAnchor,
+                                         bottom: view.bottomAnchor,
+                                         trailing: view.trailingAnchor)
         } else {
             // Fallback on earlier versions
         }
@@ -93,7 +99,10 @@ open class DPPagingScrollViewController: UIViewController {
     fileprivate func setupContainerView() {
         scrollView.addSubview(containerView)
         if #available(iOS 9.0, *) {
-            containerView.enableEdgesAnchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor) // These are special ScrollView constraints and they have no effect on your content size or position.
+            containerView.enableEdgesAnchor(top: scrollView.topAnchor,
+                                            leading: scrollView.leadingAnchor,
+                                            bottom: scrollView.bottomAnchor,
+                                            trailing: scrollView.trailingAnchor) // These are special ScrollView constraints and they have no effect on your content size or position.
             NSLayoutConstraint.activate([
                 containerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
                 ])
@@ -114,21 +123,14 @@ open class DPPagingScrollViewController: UIViewController {
             for i in 0..<pages.count {
                 let pageView = pages[i]
                 switch i {
-                case 0:
+                case 0: // first page
                     NSLayoutConstraint.activate([
                         pageView.topAnchor.constraint(equalTo: containerView.topAnchor),
                         pageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
                         pageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
                         pageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
                         ])
-                case 1, 2:
-                    NSLayoutConstraint.activate([
-                        pageView.topAnchor.constraint(equalTo: containerView.topAnchor),
-                        pageView.leadingAnchor.constraint(equalTo: pages[i - 1].trailingAnchor),
-                        pageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-                        pageView.widthAnchor.constraint(equalTo: pages[i - 1].widthAnchor)
-                        ])
-                case 3:
+                case pages.count - 1:   // last page
                     NSLayoutConstraint.activate([
                         pageView.topAnchor.constraint(equalTo: containerView.topAnchor),
                         pageView.leadingAnchor.constraint(equalTo: pages[i - 1].trailingAnchor),
@@ -137,7 +139,12 @@ open class DPPagingScrollViewController: UIViewController {
                         pageView.widthAnchor.constraint(equalTo: pages[i - 1].widthAnchor)
                         ])
                 default:
-                    break
+                    NSLayoutConstraint.activate([
+                        pageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+                        pageView.leadingAnchor.constraint(equalTo: pages[i - 1].trailingAnchor),
+                        pageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+                        pageView.widthAnchor.constraint(equalTo: pages[i - 1].widthAnchor)
+                        ])
                 }
             }
         } else {
