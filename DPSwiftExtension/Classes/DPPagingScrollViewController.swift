@@ -81,19 +81,10 @@ open class DPPagingScrollViewController: UIViewController {
     @objc open func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.delegate = self
-        if #available(iOS 11.0, *) {
-            scrollView.enableEdgesAnchor(top: view.safeAreaLayoutGuide.topAnchor,
-                                         leading: view.safeAreaLayoutGuide.leadingAnchor,
-                                         bottom: view.safeAreaLayoutGuide.bottomAnchor,
-                                         trailing: view.safeAreaLayoutGuide.trailingAnchor)
-        } else if #available(iOS 9.0, *) {
-            scrollView.enableEdgesAnchor(top: view.topAnchor,
-                                         leading: view.leadingAnchor,
-                                         bottom: view.bottomAnchor,
-                                         trailing: view.trailingAnchor)
-        } else {
-            // Fallback on earlier versions
-        }
+        scrollView.enableEdgesAnchor(top: view.safeAreaLayoutGuide.topAnchor,
+                                     leading: view.safeAreaLayoutGuide.leadingAnchor,
+                                     bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                     trailing: view.safeAreaLayoutGuide.trailingAnchor)
     }
     
     fileprivate func setupContainerView() {

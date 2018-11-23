@@ -1,5 +1,5 @@
 import UIKit
-import DPSwiftExtension
+//import DPSwiftExtension
 
 var str = "playground "
 str.validateRegex(pattern: "\\w+")

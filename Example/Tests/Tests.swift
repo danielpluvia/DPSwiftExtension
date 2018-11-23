@@ -2,7 +2,7 @@
 
 import Quick
 import Nimble
-import DPSwiftExtension
+//import DPSwiftExtension
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {

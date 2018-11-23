@@ -78,6 +78,8 @@
 		650815902196AA5C005E6E4F /* DPStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6508158F2196AA5C005E6E4F /* DPStringExtension.swift */; };
 		6508159F21972D59005E6E4F /* DPUserDefaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6508159E21972D59005E6E4F /* DPUserDefaultable.swift */; };
 		650815A72197E2FE005E6E4F /* DPUIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650815A62197E2FE005E6E4F /* DPUIViewControllerExtension.swift */; };
+		657AE2C621A57E3E00BE69A2 /* DPPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AE2C521A57E3E00BE69A2 /* DPPageControl.swift */; };
+		657AE2C821A6C5AB00BE69A2 /* DPUIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AE2C721A6C5AA00BE69A2 /* DPUIStackViewExtension.swift */; };
 		66F355607487D74D1AADDC02462AF53C /* PrettyDynamicTypeSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23A87C01009F1373EF0DD4D0114057 /* PrettyDynamicTypeSyntax.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		67B19ADC10CC4015A223A3B7A62B1ADD /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C7695566FB1329C58521A0B36A5F0 /* ThrowError.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		67C421CC5874418AC0695BC424EC3408 /* DSL.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DE00FEBBC063392D435791B78E0614 /* DSL.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble -w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -340,6 +342,8 @@
 		6508159E21972D59005E6E4F /* DPUserDefaultable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DPUserDefaultable.swift; path = DPSwiftExtension/Classes/DPUserDefaultable.swift; sourceTree = "<group>"; };
 		650815A62197E2FE005E6E4F /* DPUIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DPUIViewControllerExtension.swift; path = DPSwiftExtension/Classes/DPUIViewControllerExtension.swift; sourceTree = "<group>"; };
 		651B5337C42F06E5C7DE3087C1EFCA3A /* CwlBadInstructionException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlBadInstructionException.swift; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlBadInstructionException.swift; sourceTree = "<group>"; };
+		657AE2C521A57E3E00BE69A2 /* DPPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DPPageControl.swift; path = DPSwiftExtension/Classes/DPPageControl.swift; sourceTree = "<group>"; };
+		657AE2C721A6C5AA00BE69A2 /* DPUIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DPUIStackViewExtension.swift; path = DPSwiftExtension/Classes/DPUIStackViewExtension.swift; sourceTree = "<group>"; };
 		66BBC3B6C2A05205471B5CAAC3AA5EAB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68313424EBCDFC816CC81A10258D2550 /* DPSwiftExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DPSwiftExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		692D3E847F03DF0130A7173354C7BFA0 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
@@ -657,6 +661,7 @@
 		316D2DD6509ADA5E806B8C68858C7707 /* DPSwiftExtension */ = {
 			isa = PBXGroup;
 			children = (
+				657AE2C521A57E3E00BE69A2 /* DPPageControl.swift */,
 				65081579219568D1005E6E4F /* DPPagingScrollViewController.swift */,
 				C92E8CE082DB08588F44B8FAF33AE3E3 /* DPPaddingUITextField.swift */,
 				212DF96F6AB1B2EF659FF42C55539B5C /* DPUIColorExtension.swift */,
@@ -664,6 +669,7 @@
 				CA7F557682FB5E8AA80B8AFD0441C7B4 /* DPUIViewExtension.swift */,
 				6508158F2196AA5C005E6E4F /* DPStringExtension.swift */,
 				6508159E21972D59005E6E4F /* DPUserDefaultable.swift */,
+				657AE2C721A6C5AA00BE69A2 /* DPUIStackViewExtension.swift */,
 				3509AC965F8FC802D9E9AAEB6AE69F9E /* Pod */,
 				173B224134F669141F9E4804076AFD69 /* Support Files */,
 			);
@@ -1287,6 +1293,8 @@
 				650815902196AA5C005E6E4F /* DPStringExtension.swift in Sources */,
 				A82C73F6B2E2C5E67C1F44C5EFBBE5AD /* DPPaddingUITextField.swift in Sources */,
 				9313558D4BBC15A926BA84656B638BCB /* DPSwiftExtension-dummy.m in Sources */,
+				657AE2C821A6C5AB00BE69A2 /* DPUIStackViewExtension.swift in Sources */,
+				657AE2C621A57E3E00BE69A2 /* DPPageControl.swift in Sources */,
 				F67BA082066D82203F55D0D66FA67744 /* DPUIColorExtension.swift in Sources */,
 				6508157A219568D1005E6E4F /* DPPagingScrollViewController.swift in Sources */,
 				CB5B37D7DAD0EB4D875BAC1CAE030E1A /* DPUIViewExtension.swift in Sources */,
@@ -1528,7 +1536,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DPSwiftExtension/DPSwiftExtension-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DPSwiftExtension/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/DPSwiftExtension/DPSwiftExtension.modulemap";
 				PRODUCT_MODULE_NAME = DPSwiftExtension;
@@ -1727,7 +1735,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DPSwiftExtension/DPSwiftExtension-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DPSwiftExtension/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/DPSwiftExtension/DPSwiftExtension.modulemap";
 				PRODUCT_MODULE_NAME = DPSwiftExtension;
