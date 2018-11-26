@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = PagingViewController()
+        window?.rootViewController = DPDynamicHeightCollectionViewLayoutExampleVC()
         return true
     }
 

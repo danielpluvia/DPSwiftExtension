@@ -34,7 +34,7 @@ open class DPPageControl: UIControl {
     open var numberOfPages: Int = 0
     open var currentPage: Int = 0
     open var progress: CGFloat = 0   // 0...1
-    open var hidesForSinglePage: Bool = false
+    //    open var hidesForSinglePage: Bool = false
     open var indicatorWidth: CGFloat = 30 {
         didSet {
             widthConstraint?.constant = indicatorWidth
@@ -46,9 +46,10 @@ open class DPPageControl: UIControl {
             inactiveHeightConstraint?.constant = indicatorHeight
         }
     }
+    open var scaleRatio: CGFloat = 1.65 // relates to the max length of the indicator's transformation
     open var radius: CGFloat {
         return indicatorHeight / 3.0
-    }
+    }   // influences the line cap
     open var pageIndicatorTintColor: UIColor = UIColor.red.withAlphaComponent(0.3) {
         didSet {
             stackView.arrangedSubviews.forEach { (arrangedSubview) in
@@ -56,12 +57,12 @@ open class DPPageControl: UIControl {
                 containerView.indicator.backgroundColor = pageIndicatorTintColor
             }
         }
-    }
+    }   // inactive indicator's color
     open var currentPageIndicatorTintColor: UIColor = .red {
         didSet {
             active.backgroundColor = currentPageIndicatorTintColor
         }
-    }
+    }   // active indicator's color
     // MARK: fileprivate vars
     fileprivate var active: UIView = {
         let view = UIView()
@@ -153,7 +154,7 @@ extension DPPageControl {
         let mult = distance * 2
         let perWidth = self.frame.width / CGFloat(numberOfPages)
         let widthConstant = perWidth * CGFloat(mult) + indicatorWidth
-        widthConstraint?.constant = min(widthConstant, perWidth * 0.65)
+        widthConstraint?.constant = min(widthConstant, indicatorWidth * scaleRatio)
     }
 }
 
