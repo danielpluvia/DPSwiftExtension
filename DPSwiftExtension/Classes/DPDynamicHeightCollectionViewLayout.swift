@@ -10,7 +10,7 @@ import UIKit
 
 open class DPDynamicHeightCollectionViewLayout: UICollectionViewLayout {
     let numberOfColumns: Int = 2   // total columns in a row
-    let interItemSpacing: CGFloat = 8
+    var interItemSpacing: CGFloat = 8
     var contentInsets: UIEdgeInsets {
         guard let collectionView = collectionView else { return .zero }
         return collectionView.contentInset
@@ -22,6 +22,19 @@ open class DPDynamicHeightCollectionViewLayout: UICollectionViewLayout {
     fileprivate var contentSize: CGSize = .zero
     open override var collectionViewContentSize: CGSize {
         return contentSize
+    }
+    
+    public override init() {
+        super.init()
+    }
+    
+    public convenience init(interItemSpacing: CGFloat) {
+        self.init()
+        self.interItemSpacing = interItemSpacing
+    }
+    
+    public required  init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: Abstract Methods

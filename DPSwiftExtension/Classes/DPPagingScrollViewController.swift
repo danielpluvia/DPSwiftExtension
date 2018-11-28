@@ -25,13 +25,13 @@ open class DPPagingScrollViewController: UIViewController {
         }, completion: nil)
     }
     
-    open func scrollTo(pageIndex: Int) {
+    open func scrollTo(pageIndex: Int, animated: Bool = true) {
         var index = pageIndex
         index = max(index, 0)
         index = min(pages.count - 1, index)
         currentPage = CGFloat(index)
         let newOffset = CGPoint(x: currentPage * scrollView.frame.width, y: 0)
-        scrollView.setContentOffset(newOffset, animated: true)
+        scrollView.setContentOffset(newOffset, animated: animated)
         view.endEditing(true)
     }
     
@@ -67,6 +67,11 @@ open class DPPagingScrollViewController: UIViewController {
         setupScrollView()
         setupContainerView()
         setupPages()
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scrollTo(pageIndex: Int(currentPage), animated: false)
     }
     
     fileprivate let containerView: UIView = {

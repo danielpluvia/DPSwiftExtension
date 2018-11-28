@@ -12,7 +12,7 @@ import DPSwiftExtension
 class DPDynamicHeightCollectionViewLayoutExampleVC: UIViewController {
     
     fileprivate let cellId = "cellId"
-    fileprivate let padding: CGFloat = 12
+    fileprivate let padding: CGFloat = 10
     
     fileprivate lazy var collectionView: UICollectionView = {
         let layout = DPDynamicHeightCollectionViewLayout()
@@ -21,7 +21,6 @@ class DPDynamicHeightCollectionViewLayoutExampleVC: UIViewController {
         collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        let padding: CGFloat = 8
         collectionView.contentInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         //        collectionView.backgroundColor = UIColor(red: 245, green: 246, blue: 249, alpha: 100)
         collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.98, alpha: 1.0)
