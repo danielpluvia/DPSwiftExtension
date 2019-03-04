@@ -9,11 +9,12 @@
 import UIKit
 
 open class DPDynamicHeightCollectionViewLayout: UICollectionViewLayout {
-    let numberOfColumns: Int = 2   // total columns in a row
-    var interItemSpacing: CGFloat = 8
-    var contentInsets: UIEdgeInsets {
-        guard let collectionView = collectionView else { return .zero }
-        return collectionView.contentInset
+    open var numberOfColumns: Int = 2   // total columns in a row
+    open var interItemSpacing: CGFloat = 10
+    open var contentInsets: UIEdgeInsets = .zero {
+        didSet {
+            collectionView?.contentInset = contentInsets
+        }
     }
     
     fileprivate var layoutMap = [IndexPath: UICollectionViewLayoutAttributes]() // cache
@@ -22,19 +23,6 @@ open class DPDynamicHeightCollectionViewLayout: UICollectionViewLayout {
     fileprivate var contentSize: CGSize = .zero
     open override var collectionViewContentSize: CGSize {
         return contentSize
-    }
-    
-    public override init() {
-        super.init()
-    }
-    
-    public convenience init(interItemSpacing: CGFloat) {
-        self.init()
-        self.interItemSpacing = interItemSpacing
-    }
-    
-    public required  init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: Abstract Methods
@@ -57,7 +45,7 @@ extension DPDynamicHeightCollectionViewLayout {
         // Reset
         layoutMap.removeAll()
         columnsXOffsets = []
-        columnsYOffsets = Array(repeating: 0, count: numberOfColumns)
+        columnsYOffsets = Array(repeating: contentInsets.top, count: numberOfColumns)
         
         // xOffsets
         let contentWidthWithoutIndents = collectionView.bounds.width - contentInsets.left - contentInsets.right
@@ -65,7 +53,7 @@ extension DPDynamicHeightCollectionViewLayout {
         let itemWidth = (contentWidthWithoutIndents - totalInterSpacing) / CGFloat(numberOfColumns)
         columnsXOffsets = []
         for columnIndex in 0..<numberOfColumns {
-            columnsXOffsets.append(CGFloat(columnIndex) * (itemWidth + interItemSpacing))
+            columnsXOffsets.append(CGFloat(columnIndex) * (itemWidth + interItemSpacing) + contentInsets.left)
         }
         
         // yOffsets & layoutMap
@@ -75,14 +63,14 @@ extension DPDynamicHeightCollectionViewLayout {
             let columnIndex = columnIndexForItem(at: indexPath)
             let attributeFrame = CGRect(x: columnsXOffsets[columnIndex],
                                         y: columnsYOffsets[columnIndex],
-                                        width: itemWidth, height: itemWidth * CGFloat.random(in: 1.1..<1.5))
+                                        width: itemWidth, height: itemWidth * CGFloat.random(in: 1.5..<1.9))
             let targetLayoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             targetLayoutAttributes.frame = attributeFrame
             maxHeight = max(attributeFrame.maxY, maxHeight)
             columnsYOffsets[columnIndex] = attributeFrame.maxY + interItemSpacing
             layoutMap[indexPath] = targetLayoutAttributes
         }
-        contentSize = CGSize(width: collectionView.bounds.size.width - contentInsets.left - contentInsets.right, height: maxHeight)
+        contentSize = CGSize(width: collectionView.bounds.size.width - contentInsets.left - contentInsets.right, height: maxHeight + contentInsets.top + contentInsets.bottom)
     }
     
     open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
