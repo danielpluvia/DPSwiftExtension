@@ -10,7 +10,7 @@ import UIKit
 
 open class DPDynamicHeightCollectionViewLayout: UICollectionViewLayout {
     open var numberOfColumns: Int = 2   // total columns in a row
-    open var interItemSpacing: CGFloat = 10
+    open var interItemSpacing: CGSize = CGSize(width: 10, height: 10)
     open var contentInsets: UIEdgeInsets = .zero {
         didSet {
             collectionView?.contentInset = contentInsets
@@ -49,11 +49,11 @@ extension DPDynamicHeightCollectionViewLayout {
         
         // xOffsets
         let contentWidthWithoutIndents = collectionView.bounds.width - contentInsets.left - contentInsets.right
-        let totalInterSpacing = interItemSpacing * (CGFloat(numberOfColumns) - 1)
-        let itemWidth = (contentWidthWithoutIndents - totalInterSpacing) / CGFloat(numberOfColumns)
+        let totalInterWidthSpacing = interItemSpacing.width * (CGFloat(numberOfColumns) - 1)
+        let itemWidth = (contentWidthWithoutIndents - totalInterWidthSpacing) / CGFloat(numberOfColumns)
         columnsXOffsets = []
         for columnIndex in 0..<numberOfColumns {
-            columnsXOffsets.append(CGFloat(columnIndex) * (itemWidth + interItemSpacing) + contentInsets.left)
+            columnsXOffsets.append(CGFloat(columnIndex) * (itemWidth + interItemSpacing.width) + contentInsets.left)
         }
         
         // yOffsets & layoutMap
@@ -67,7 +67,7 @@ extension DPDynamicHeightCollectionViewLayout {
             let targetLayoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             targetLayoutAttributes.frame = attributeFrame
             maxHeight = max(attributeFrame.maxY, maxHeight)
-            columnsYOffsets[columnIndex] = attributeFrame.maxY + interItemSpacing
+            columnsYOffsets[columnIndex] = attributeFrame.maxY + interItemSpacing.height
             layoutMap[indexPath] = targetLayoutAttributes
         }
         contentSize = CGSize(width: collectionView.bounds.size.width - contentInsets.left - contentInsets.right, height: maxHeight + contentInsets.top + contentInsets.bottom)
