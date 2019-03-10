@@ -5,6 +5,8 @@
 //  Created by Xueqiang Ma on 26/11/18.
 //  Copyright © 2018 Daniel Ma. All rights reserved.
 //
+//  Inspired by: https://www.raywenderlich.com/392-uicollectionview-custom-layout-tutorial-pinterest
+//
 
 import UIKit
 
@@ -17,28 +19,27 @@ open class DPDynamicHeightCollectionViewLayout: UICollectionViewLayout {
         }
     }
     
-    fileprivate var layoutMap = [IndexPath: UICollectionViewLayoutAttributes]() // cache
+    fileprivate var layoutMap = [IndexPath: UICollectionViewLayoutAttributes]() // This is an array to cache the calculated attributes. When you call prepare(), you’ll calculate the attributes for all items and add them to the cache. When the collection view later requests the layout attributes, you can be efficient and query the cache instead of recalculating them every time.
     fileprivate var columnsXOffsets: [CGFloat] = []
     fileprivate var columnsYOffsets: [CGFloat] = []  // contains max yOffset for each column
     fileprivate var contentSize: CGSize = .zero
-    open override var collectionViewContentSize: CGSize {
-        return contentSize
-    }
     
     // MARK: Abstract Methods
     func columnIndexForItem(at indexPath: IndexPath) -> Int {
         return indexPath.item % numberOfColumns
     }
-    
-    func calculateItemSize() {
-        
-    }
 }
 
 // MARK: - Override Methods
 extension DPDynamicHeightCollectionViewLayout {
+    // This variable returns the width and height of the collection view’s contents. You must override it. Then return the height and width of the entire collection view’s content — not just the visible content. The collection view uses this information internally to configure its scroll view’s content size.
+    open override var collectionViewContentSize: CGSize {
+        return contentSize
+    }
+    
+    // This method is called whenever a layout operation is about to take place. It’s your opportunity to prepare and perform any calculations required to determine the collection view’s size and the positions of the items.
     open override func prepare() {
-        guard let collectionView = collectionView else { return }
+        guard layoutMap.isEmpty == true, let collectionView = collectionView else { return }
         let sectionIndex = 0
         let totalItems = collectionView.numberOfItems(inSection: sectionIndex)
         guard numberOfColumns > 0, totalItems > 0 else { return }
@@ -70,9 +71,12 @@ extension DPDynamicHeightCollectionViewLayout {
             columnsYOffsets[columnIndex] = attributeFrame.maxY + interItemSpacing.height
             layoutMap[indexPath] = targetLayoutAttributes
         }
-        contentSize = CGSize(width: collectionView.bounds.size.width - contentInsets.left - contentInsets.right, height: maxHeight + contentInsets.top + contentInsets.bottom)
+        contentSize = CGSize(
+            width: collectionView.bounds.size.width - contentInsets.left - contentInsets.right,
+            height: maxHeight + contentInsets.top + contentInsets.bottom)
     }
     
+    // In this method you need to return the layout attributes for all the items inside the given rectangle. You return the attributes to the collection view as an array of UICollectionViewLayoutAttributes.
     open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributesArray: [UICollectionViewLayoutAttributes] = []
         for (_, layoutAttributes) in layoutMap {
@@ -83,6 +87,7 @@ extension DPDynamicHeightCollectionViewLayout {
         return layoutAttributesArray
     }
     
+    // This method provides on demand layout information to the collection view. You need to override it and return the layout attributes for the item at the requested indexPath.
     open override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return layoutMap[indexPath]
     }
