@@ -7,6 +7,7 @@
 //
 //  Inspired by: https://www.raywenderlich.com/392-uicollectionview-custom-layout-tutorial-pinterest
 //
+//  To set collectionView's contentInset, you will need to set the collectionView.contentInset of the collectionView.
 
 import UIKit
 
@@ -54,7 +55,6 @@ extension DPDynamicHeightCollectionViewLayout {
         let contentWidthWithoutIndents = collectionView.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right
         let totalInterWidthSpacing = interItemSpacing.width * (CGFloat(numberOfColumns) - 1)
         let itemWidth = (contentWidthWithoutIndents - totalInterWidthSpacing) / CGFloat(numberOfColumns)
-        print(contentWidthWithoutIndents, totalInterWidthSpacing, itemWidth)
         
         for columnIndex in 0..<numberOfColumns {
             columnsXOffsets.append(CGFloat(columnIndex) * (itemWidth + interItemSpacing.width))

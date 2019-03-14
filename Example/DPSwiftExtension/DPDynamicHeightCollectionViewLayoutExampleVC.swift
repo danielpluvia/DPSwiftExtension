@@ -44,12 +44,11 @@ class DPDynamicHeightCollectionViewLayoutExampleVC: UIViewController {
     }
     
     @objc func handleTapGesture(gesture: UITapGestureRecognizer) {
-        print("UIScreen.main.bounds.width: \(UIScreen.main.bounds.width)")
         if let layout = collectionView.collectionViewLayout as? DPDynamicHeightCollectionViewLayout {
             self.collectionView.reloadData()
             layout.resetLayout()
         }
-        print("collectionView.bounds.width: \(collectionView.bounds.width)")
+        print("updated layout")
     }
     
 }
