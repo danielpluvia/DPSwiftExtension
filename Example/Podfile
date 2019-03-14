@@ -9,9 +9,9 @@ target 'DPSwiftExtension_Example' do
   target 'DPSwiftExtension_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', :inhibit_warnings => true
-    pod 'Nimble', :inhibit_warnings => true
-    pod 'FBSnapshotTestCase', :inhibit_warnings => true
-    pod 'Nimble-Snapshots', :inhibit_warnings => true
+    # pod 'Quick', :inhibit_warnings => true
+    # pod 'Nimble', :inhibit_warnings => true
+    # pod 'FBSnapshotTestCase', :inhibit_warnings => true
+    # pod 'Nimble-Snapshots', :inhibit_warnings => true
   end
 end

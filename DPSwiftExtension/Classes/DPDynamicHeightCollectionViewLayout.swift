@@ -10,14 +10,16 @@
 
 import UIKit
 
+extension DPDynamicHeightCollectionViewLayout {
+    open func resetLayout() {
+        layoutMap.removeAll()
+        prepare()
+    }
+}
+
 open class DPDynamicHeightCollectionViewLayout: UICollectionViewLayout {
     open var numberOfColumns: Int = 2   // total columns in a row
     open var interItemSpacing: CGSize = CGSize(width: 10, height: 10)
-    open var contentInsets: UIEdgeInsets = .zero {
-        didSet {
-            collectionView?.contentInset = contentInsets
-        }
-    }
     
     fileprivate var layoutMap = [IndexPath: UICollectionViewLayoutAttributes]() // This is an array to cache the calculated attributes. When you call prepare(), you’ll calculate the attributes for all items and add them to the cache. When the collection view later requests the layout attributes, you can be efficient and query the cache instead of recalculating them every time.
     fileprivate var columnsXOffsets: [CGFloat] = []
@@ -46,15 +48,16 @@ extension DPDynamicHeightCollectionViewLayout {
         // Reset
         layoutMap.removeAll()
         columnsXOffsets = []
-        columnsYOffsets = Array(repeating: contentInsets.top, count: numberOfColumns)
+        columnsYOffsets = Array(repeating: 0, count: numberOfColumns)
         
         // xOffsets
-        let contentWidthWithoutIndents = collectionView.bounds.width - contentInsets.left - contentInsets.right
+        let contentWidthWithoutIndents = collectionView.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right
         let totalInterWidthSpacing = interItemSpacing.width * (CGFloat(numberOfColumns) - 1)
         let itemWidth = (contentWidthWithoutIndents - totalInterWidthSpacing) / CGFloat(numberOfColumns)
-        columnsXOffsets = []
+        print(contentWidthWithoutIndents, totalInterWidthSpacing, itemWidth)
+        
         for columnIndex in 0..<numberOfColumns {
-            columnsXOffsets.append(CGFloat(columnIndex) * (itemWidth + interItemSpacing.width) + contentInsets.left)
+            columnsXOffsets.append(CGFloat(columnIndex) * (itemWidth + interItemSpacing.width))
         }
         
         // yOffsets & layoutMap
@@ -72,8 +75,8 @@ extension DPDynamicHeightCollectionViewLayout {
             layoutMap[indexPath] = targetLayoutAttributes
         }
         contentSize = CGSize(
-            width: collectionView.bounds.size.width - contentInsets.left - contentInsets.right,
-            height: maxHeight + contentInsets.top + contentInsets.bottom)
+            width: contentWidthWithoutIndents,
+            height: maxHeight + collectionView.contentInset.top + collectionView.contentInset.bottom)
     }
     
     // In this method you need to return the layout attributes for all the items inside the given rectangle. You return the attributes to the collection view as an array of UICollectionViewLayoutAttributes.

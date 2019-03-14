@@ -1,6 +1,6 @@
 {
   "name": "DPSwiftExtension",
-  "version": "0.1.3",
+  "version": "0.1.16",
   "summary": "DPSwiftExtension contains some useful Swift Extensions.",
   "description": "DPSwiftExtension make it easier for developers to develop by using custom extensions.",
   "homepage": "https://github.com/danielpluvia/DPSwiftExtension",
@@ -13,10 +13,10 @@
   },
   "source": {
     "git": "https://github.com/danielpluvia/DPSwiftExtension.git",
-    "tag": "0.1.3"
+    "tag": "0.1.16"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "11.0"
   },
   "source_files": "DPSwiftExtension/Classes/**/*",
   "swift_version": "4.2"

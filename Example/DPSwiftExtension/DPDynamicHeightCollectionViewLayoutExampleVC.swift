@@ -30,6 +30,7 @@ class DPDynamicHeightCollectionViewLayoutExampleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
     }
     
     fileprivate func setupCollectionView() {
@@ -40,6 +41,15 @@ class DPDynamicHeightCollectionViewLayoutExampleVC: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
             ])
+    }
+    
+    @objc func handleTapGesture(gesture: UITapGestureRecognizer) {
+        print("UIScreen.main.bounds.width: \(UIScreen.main.bounds.width)")
+        if let layout = collectionView.collectionViewLayout as? DPDynamicHeightCollectionViewLayout {
+            self.collectionView.reloadData()
+            layout.resetLayout()
+        }
+        print("collectionView.bounds.width: \(collectionView.bounds.width)")
     }
     
 }
