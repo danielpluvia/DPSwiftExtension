@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DPSwiftExtension'
-  s.version          = '0.1.17'
+  s.version          = '0.1.18'
   s.summary          = 'DPSwiftExtension contains some useful Swift Extensions.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ DPSwiftExtension make it easier for developers to develop by using custom extens
   s.source           = { :git => 'https://github.com/danielpluvia/DPSwiftExtension.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
 
   s.source_files = 'DPSwiftExtension/Classes/**/*'
   
@@ -40,5 +40,5 @@ DPSwiftExtension make it easier for developers to develop by using custom extens
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 
-  s.swift_version = '4.2'
+  s.swift_version = '5'
 end
